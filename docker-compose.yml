@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  proxy:
+    image: jwilder/nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/ssl:/etc/nginx/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - proxy
+    restart: always
+
+  web:
+    build: .
+    volumes:
+      - /etc/nginx/ssl:/etc/nginx/ssl
+    environment:
+      - VIRTUAL_HOST=localhost
+      - VIRTUAL_PORT=80,443
+    networks:
+      - web
+      - proxy
+    restart: always
+    
+networks:
+  proxy:
+    driver: bridge
+  web:
+    driver: bridge
