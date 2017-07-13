@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const path = require('path')
-const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -102,7 +101,7 @@ module.exports = {
       verbose: true,
       dry: false
     }),
-    new ExtractTextPlugin('[name].[contenthash].css'),
+    new ExtractTextPlugin('[name].[contenthash].css')
   ]
 }
 

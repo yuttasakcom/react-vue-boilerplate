@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '@/assets/css/navbar.sass'
+import '@/assets/css/navbar.scss'
 
 const Navbar = () => (
   <nav>
-    <Link to="/">Home</Link>
+    <div className="text-center">
+      <Link to="/">Home</Link>
+    </div>
   </nav>
 )
 
