@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '@/containers/Navbar.vue'
+import Navbar from '@/containers/Navbar'
 
 const Home = () => (
   <div>
